@@ -26,25 +26,25 @@ Você deve implementar a classe "**ContaBancaria**" para que o programa funcione
 
 **Exemplo 1:**
 
-Entre o número da conta: <span style="color:red">5447</span>
+Entre o número da conta: **5447**
 
-Entre o titular da conta: <span style="color:red">Milton Gonçalves</span>
+Entre o titular da conta: **Milton Gonçalves**
 
-Haverá depósito inicial (s/n)? <span style="color:red">s</span>
+Haverá depósito inicial (s/n)? **s**
 
-Entre o valor de depósito inicial: <span style="color:red">350.00</span>
+Entre o valor de depósito inicial: **350.00**
 
 Dados da conta:
 
 Conta 5447, Titular: Milton Gonçalves, Saldo: $ 350.00
 
-Entre um valor para depósito: <span style="color:red">200</span>
+Entre um valor para depósito: **200**
 
 Dados da conta atualizados:
 
 Conta 5447, Titular: Milton Gonçalves, Saldo: $ 550.00
 
-Entre um valor para saque: <span style="color:red">199</span>
+Entre um valor para saque: **199**
 
 Dados da conta atualizados:
 
@@ -52,23 +52,23 @@ Conta 5447, Titular: Milton Gonçalves, Saldo: $ 347.50
 
 **Exemplo 2:**
 
-Entre o número da conta: <span style="color:red">5139</span>
+Entre o número da conta: **5139**
 
-Entre o titular da conta: <span style="color:red">Elza Soares</span>
+Entre o titular da conta: **Elza Soares**
 
-Haverá depósito inicial (s/n)? <span style="color:red">n</span>
+Haverá depósito inicial (s/n)? **n**
 
 Dados da conta:
 
 Conta 5139, Titular: Elza Soares, Saldo: $ 0.00
 
-Entre um valor para depósito: <span style="color:red">300.00</span>
+Entre um valor para depósito: **300.00**
 
 Dados da conta atualizados:
 
 Conta 5139, Titular: Elza Soares, Saldo: $ 300.00
 
-Entre um valor para saque: <span style="color:red">298.00</span>
+Entre um valor para saque: **298.00**
 
 Dados da conta atualizados:
 
@@ -102,20 +102,21 @@ O programa deve retornar 2 resultados:
 
 **Resultado 1:**
 
-**Time:** <span style="color:red">Paris Saint-Germain</span>
+**Time:** **Paris Saint-Germain**
 
-**Ano:** <span style="color:red">2013</span>
+**Ano:** **2013**
 
 **Resultado 2:**
 
-**Time:** <span style="color:red">Chelsea</span>
+**Time:** **Chelsea**
 
-**Ano:** <span style="color:red">2014</span>
+**Ano:** **2014**
 
 Resultado esperado:
 
-<span style="color:green">Team Paris Saint - Germain scored 109 goals in 2013</span>
-<span style="color:green">Team Chelsea scored 92 goals in 2014</span>
+**Team Paris Saint - Germain scored 109 goals in 2013**
+
+**Team Chelsea scored 92 goals in 2014**
 
 # Questões 3
 
