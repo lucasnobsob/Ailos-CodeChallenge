@@ -32,10 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Database\CommandStore\Requests\" />
-    <Folder Include="Infrastructure\Database\CommandStore\Responses\" />
-    <Folder Include="Infrastructure\Database\QueryStore\Requests\" />
-    <Folder Include="Infrastructure\Database\QueryStore\Responses\" />
+    <Folder Include="Infrastructure\Database\" />
   </ItemGroup>
 
 </Project>
