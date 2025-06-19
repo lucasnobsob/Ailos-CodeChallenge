@@ -220,6 +220,23 @@ COMMIT;
 
 **Resposta:**
 
+```sql
+SELECT
+    assunto,
+    ano,
+    COUNT(*) AS quantidade_ocorrencias
+FROM
+    atendimentos
+GROUP BY
+    assunto,
+    ano
+HAVING
+    COUNT(*) > 3
+ORDER BY
+    ano DESC,
+    quantidade_ocorrencias DESC;
+```
+
 # Questão 5
 
 Um banco que já possui uma API REST, necessita que você desenvolva duas novas funcionalidades:
