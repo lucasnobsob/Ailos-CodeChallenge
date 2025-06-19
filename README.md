@@ -124,7 +124,7 @@ Nesta questão vamos usar o Git e um editor de texto (nano), você pode realizar
 
 Nessa sequência, o nano representa a abertura de um editor de texto para criar/editar o arquivo especificado como argumento e você deve salvar no arquivo um conteúdo qualquer, que foi salvo em disco antes de prosseguir com o próximo comando:
 
-`
+```
 git init
 
 nano README.md
@@ -153,7 +153,7 @@ git commit -m "Commit 3"
 
 git checkout master
 
-`
+```
 
 Ao final dessa sequência de comandos, os arquivos que se encontram em seu diretório de trabalho, além do **README.md**, é/são:
 
