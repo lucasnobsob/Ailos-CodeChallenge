@@ -186,7 +186,6 @@ O comando deve ordenar os registros por **ANO** e por **QUANTIDADE** de ocorrên
 **Comandos para criação da tabela e inserção dos registros:**
 
 ```sql
--- ORACLE
 CREATE TABLE atendimentos (
 id RAW(16) DEFAULT SYS_GUID() NOT NULL,
 assunto VARCHAR2(100) NOT NULL,
@@ -237,29 +236,29 @@ Questao5\\Infrastructure\\Sqlite\\DatabaseBootstrap.cs -- Script utilizado na in
 
 ```sql
 CREATE TABLE contacorrente (
-idcontacorrente TEXT(37) PRIMARY KEY, -- id da conta corrente
-numero INTEGER(10) NOT NULL UNIQUE, -- numero da conta corrente
-nome TEXT(100) NOT NULL, -- nome do titular da conta corrente
-ativo INTEGER(1) NOT NULL default 0, -- indicativo se a conta esta ativa. (0 = inativa, 1 = ativa).
-CHECK (ativo in (0,1))
+    idcontacorrente TEXT(37) PRIMARY KEY, -- id da conta corrente
+    numero INTEGER(10) NOT NULL UNIQUE, -- numero da conta corrente
+    nome TEXT(100) NOT NULL, -- nome do titular da conta corrente
+    ativo INTEGER(1) NOT NULL default 0, -- indicativo se a conta esta ativa. (0 = inativa, 1 = ativa).
+    CHECK (ativo in (0,1))
 );
+
 CREATE TABLE movimento (
-idmovimento TEXT(37) PRIMARY KEY, -- identificacao unica do movimento
-idcontacorrente INTEGER(10) NOT NULL, -- identificacao unica da conta corrente
-datamovimento TEXT(25) NOT NULL, -- data do movimento no formato DD/MM/YYYY
-tipomovimento TEXT(1) NOT NULL, -- tipo do movimento. (C = Credito, D = Debito).
-valor REAL NOT NULL, -- valor do movimento. Usar duas casas decimais.
-CHECK (tipomovimento in (
-'C',
-'D'
-)),
-FOREIGN KEY(idcontacorrente) REFERENCES contacorrente(idcontacorrente)
+    idmovimento TEXT(37) PRIMARY KEY, -- identificacao unica do movimento
+    idcontacorrente INTEGER(10) NOT NULL, -- identificacao unica da conta corrente
+    datamovimento TEXT(25) NOT NULL, -- data do movimento no formato DD/MM/YYYY
+    tipomovimento TEXT(1) NOT NULL, -- tipo do movimento. (C = Credito, D = Debito).
+    valor REAL NOT NULL, -- valor do movimento. Usar duas casas decimais.
+    CHECK (tipomovimento in ('C','D')),
+    FOREIGN KEY(idcontacorrente) REFERENCES contacorrente(idcontacorrente)
 );
+
 CREATE TABLE idempotencia (
-chave_idempotencia TEXT(37) PRIMARY KEY, -- identificacao chave de idempotencia
-requisicao TEXT(1000), -- dados de requisicao
-resultado TEXT(1000) -- dados de retorno
+    chave_idempotencia TEXT(37) PRIMARY KEY, -- identificacao chave de idempotencia
+    requisicao TEXT(1000), -- dados de requisicao
+    resultado TEXT(1000) -- dados de retorno
 );
+
 INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES('B6BAFC09 -6967-ED11-A567-055DFA4A16C9',123,'Katherine Sanchez',1);
 INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES('FA99D033-7067-ED11-96C6-7C5DFA4A16C9',456,'Eva Woodward',1);
 INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES('382D323D-7067-ED11-8866-7D5DFA4A16C9',789,'Tevin Mcconnell',1);
