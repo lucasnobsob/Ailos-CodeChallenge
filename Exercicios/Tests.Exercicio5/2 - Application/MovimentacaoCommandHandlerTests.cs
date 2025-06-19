@@ -8,7 +8,7 @@ using Questao5.Domain.Interfaces;
 using System.Text.Json;
 using Tests.Exercicio5.Dummies;
 
-namespace Tests.Exercicio5._2___Application
+namespace Tests.Exercicio5.Application
 {
     public class CreateMovimentacaoCommandHandlerTests
     {

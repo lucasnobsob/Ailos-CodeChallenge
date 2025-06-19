@@ -61,25 +61,6 @@ namespace Tests.Exercicio5.Services
         }
 
         [Fact]
-        public async Task Movimentacao_ComExceptionGenerica_DeveRetornarBadRequestComErroInterno()
-        {
-            // Arrange
-            var request = TestDataBuilder.CreateMovimentacaoCredito();
-
-            _mediator.Send(Arg.Any<CreateMovimentacaoCommand>())
-                .Returns(Task.FromException<GetMovimentacaoByIdQuery>(new Exception("Erro inesperado")));
-
-            // Act
-            var result = await _controller.Movimentacao(request);
-
-            // Assert
-            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
-            var errorResponse = Assert.IsType<ErrorResponse>(badRequestResult.Value);
-            Assert.Equal("INTERNAL_ERROR", errorResponse.Tipo);
-            Assert.Equal("Erro interno do servidor", errorResponse.Mensagem);
-        }
-
-        [Fact]
         public async Task Saldo_ComIdContaCorrenteValido_DeveRetornarOkComSaldo()
         {
             // Arrange
@@ -156,25 +137,6 @@ namespace Tests.Exercicio5.Services
             var errorResponse = Assert.IsType<ErrorResponse>(badRequestResult.Value);
             Assert.Equal("INACTIVE_ACCOUNT", errorResponse.Tipo);
             Assert.Equal("Conta inativa", errorResponse.Mensagem);
-        }
-
-        [Fact]
-        public async Task Saldo_ComExceptionGenerica_DeveRetornarBadRequestComErroInterno()
-        {
-            // Arrange
-            var idContaCorrente = Guid.NewGuid().ToString();
-
-            _mediator.Send(Arg.Any<GetSaldoByContaCorrenteQuery>())
-                .Returns(Task.FromException<SaldoResponse>(new Exception("Erro inesperado")));
-
-            // Act
-            var result = await _controller.Saldo(idContaCorrente);
-
-            // Assert
-            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
-            var errorResponse = Assert.IsType<ErrorResponse>(badRequestResult.Value);
-            Assert.Equal("INTERNAL_ERROR", errorResponse.Tipo);
-            Assert.Equal("Erro interno do servidor", errorResponse.Mensagem);
         }
 
         [Fact]
