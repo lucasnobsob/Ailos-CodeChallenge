@@ -7,11 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercicio1", "Exercicio1", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercicio2", "Exercicio2", "{06D27E70-5B65-433F-B866-AD2926396D47}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercicio4", "Exercicio4", "{5CC139E4-D8C0-4522-8AE4-C62DA1CFB90F}"
-	ProjectSection(SolutionItems) = preProject
-		C:\Users\Lucas\Downloads\Teste de C# da Ailos\Questao4\questao4.sql = C:\Users\Lucas\Downloads\Teste de C# da Ailos\Questao4\questao4.sql
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercicio5", "Exercicio5", "{4D49CEAF-10B1-4A3D-B894-F8C705BD733D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercicio1", "Exercicio1\Exercicio1.csproj", "{D4CACD30-A528-4C6F-80E6-8A4500677E13}"
