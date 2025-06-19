@@ -1,6 +1,3 @@
-
-
-
 # Questão 1
 
 Uma instituição financeira solicita que para cadastrar uma conta bancária, é necessário informar:
@@ -29,25 +26,25 @@ Você deve implementar a classe "**ContaBancaria**" para que o programa funcione
 
 **Exemplo 1:**
 
-Entre o número da conta: 5447
+Entre o número da conta: <span style="color:red">5447</span>
 
-Entre o titular da conta: Milton Gonçalves
+Entre o titular da conta: <span style="color:red">Milton Gonçalves</span>
 
-Haverá depósito inicial (s/n)? s
+Haverá depósito inicial (s/n)? <span style="color:red">s</span>
 
-Entre o valor de depósito inicial: 350.00
+Entre o valor de depósito inicial: <span style="color:red">350.00</span>
 
 Dados da conta:
 
 Conta 5447, Titular: Milton Gonçalves, Saldo: $ 350.00
 
-Entre um valor para depósito: 200
+Entre um valor para depósito: <span style="color:red">200</span>
 
 Dados da conta atualizados:
 
 Conta 5447, Titular: Milton Gonçalves, Saldo: $ 550.00
 
-Entre um valor para saque: 199
+Entre um valor para saque: <span style="color:red">199</span>
 
 Dados da conta atualizados:
 
@@ -55,32 +52,27 @@ Conta 5447, Titular: Milton Gonçalves, Saldo: $ 347.50
 
 **Exemplo 2:**
 
-Entre o número da conta: 5139
+Entre o número da conta: <span style="color:red">5139</span>
 
-Entre o titular da conta: Elza Soares
+Entre o titular da conta: <span style="color:red">Elza Soares</span>
 
-Haverá depósito inicial (s/n)? n
+Haverá depósito inicial (s/n)? <span style="color:red">n</span>
 
 Dados da conta:
 
 Conta 5139, Titular: Elza Soares, Saldo: $ 0.00
 
-Entre um valor para depósito: 300.00
+Entre um valor para depósito: <span style="color:red">300.00</span>
 
 Dados da conta atualizados:
 
 Conta 5139, Titular: Elza Soares, Saldo: $ 300.00
 
-Entre um valor para saque: 298.00
+Entre um valor para saque: <span style="color:red">298.00</span>
 
 Dados da conta atualizados:
 
 Conta 5139, Titular: Elza Soares, Saldo: $ -1.50
-
-
-
-
-
 
 # Questão 2
 
@@ -110,25 +102,20 @@ O programa deve retornar 2 resultados:
 
 **Resultado 1:**
 
-**Time:** Paris Saint-Germain
+**Time:** <span style="color:red">Paris Saint-Germain</span>
 
-**Ano:** 2013
+**Ano:** <span style="color:red">2013</span>
 
 **Resultado 2:**
 
-**Time:** Chelsea
+**Time:** <span style="color:red">Chelsea</span>
 
-**Ano:** 2014
+**Ano:** <span style="color:red">2014</span>
 
 Resultado esperado:
 
-Team Paris Saint - Germain scored 109 goals in 2013
-
-Team Chelsea scored 92 goals in 2014
-
-
-
-
+<span style="color:green">Team Paris Saint - Germain scored 109 goals in 2013</span>
+<span style="color:green">Team Chelsea scored 92 goals in 2014</span>
 
 # Questões 3
 
@@ -136,51 +123,48 @@ Nesta questão vamos usar o Git e um editor de texto (nano), você pode realizar
 
 Nessa sequência, o nano representa a abertura de um editor de texto para criar/editar o arquivo especificado como argumento e você deve salvar no arquivo um conteúdo qualquer, que foi salvo em disco antes de prosseguir com o próximo comando:
 
-+----------------------------+
-| git init                   |
-|                            |
-| nano README.md             |
-|                            |
-| nano default.html          |
-|                            |
-| git add .                  |
-|                            |
-| git commit -m \"Commit 1\" |
-|                            |
-| git rm default.html        |
-|                            |
-| nano style.css             |
-|                            |
-| git add style.css          |
-|                            |
-| git commit -m \"Commit 2\" |
-|                            |
-| git checkout -b testing    |
-|                            |
-| nano script.js             |
-|                            |
-| git add \*.js              |
-|                            |
-| git commit -m \"Commit 3\" |
-|                            |
-| git checkout master        |
-+----------------------------+
+`
+git init
+
+nano README.md
+
+nano default.html
+
+git add .
+
+git commit -m "Commit 1"
+
+git rm default.html
+
+nano style.css
+
+git add style.css
+
+git commit -m "Commit 2"
+
+git checkout -b testing
+
+nano script.js
+
+git add \*.js
+
+git commit -m "Commit 3"
+
+git checkout master
+
+`
 
 Ao final dessa sequência de comandos, os arquivos que se encontram em seu diretório de trabalho, além do **README.md**, é/são:
 
--   **[ ]** script.js e style.css, apenas.
+- **[ ]** script.js e style.css, apenas.
 
--   **[ ]** default.html e style.css, apenas.
+- **[ ]** default.html e style.css, apenas.
 
--   **[ X ]** style.css, apenas.
+- **[ X ]** style.css, apenas.
 
--   **[ ]** default.html e script.js, apenas.
+- **[ ]** default.html e script.js, apenas.
 
--   **[ ]** default.html, script.js e style.css.
-
-
-
-
+- **[ ]** default.html, script.js e style.css.
 
 # Questão 4
 
@@ -207,110 +191,34 @@ id RAW(16) DEFAULT SYS_GUID() NOT NULL,
 assunto VARCHAR2(100) NOT NULL,
 ano NUMBER(4)
 );
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao atendimento',
-'2021'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao produto',
-'2021'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao produto',
-'2021'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao cadastro',
-'2021'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao atendimento',
-'2021'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao produto',
-'2021'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao produto',
-'2021'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao produto',
-'2021'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao produto',
-'2021'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao atendimento',
-'2021'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao atendimento',
-'2021'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao produto',
-'2022'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao produto',
-'2022'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao atendimento',
-'2022'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao atendimento',
-'2022'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao atendimento',
-'2022'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao cadastro',
-'2022'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao cadastro',
-'2022'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao cadastro',
-'2022'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao cadastro',
-'2022'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao cadastro',
-'2022'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao cadastro',
-'2022'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao cadastro',
-'2022'
-);
-INSERT INTO atendimentos (assunto, ano) VALUES (
-'Reclamacao cadastro',
-'2022'
-);
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao atendimento','2021');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao produto','2021');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao produto','2021');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao cadastro','2021');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao atendimento','2021');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao produto','2021');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao produto','2021');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao produto','2021');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao produto','2021');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao atendimento','2021');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao atendimento','2021');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao produto','2022');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao produto','2022');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao atendimento','2022');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao atendimento','2022');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao atendimento','2022');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao cadastro','2022');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao cadastro','2022');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao cadastro','2022');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao cadastro','2022');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao cadastro','2022');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao cadastro','2022');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao cadastro','2022');
+INSERT INTO atendimentos (assunto, ano) VALUES ('Reclamacao cadastro','2022');
 COMMIT;
 ```
 
 **Resposta:**
-
-
-
-
 
 # Questão 5
 
@@ -351,42 +259,12 @@ chave_idempotencia TEXT(37) PRIMARY KEY, -- identificacao chave de idempotencia
 requisicao TEXT(1000), -- dados de requisicao
 resultado TEXT(1000) -- dados de retorno
 );
-INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES(
-'B6BAFC09 -6967-ED11-A567-055DFA4A16C9',
-123,
-'Katherine Sanchez',
-1
-);
-INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES(
-'FA99D033-7067-ED11-96C6-7C5DFA4A16C9',
-456,
-'Eva Woodward',
-1
-);
-INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES(
-'382D323D-7067-ED11-8866-7D5DFA4A16C9',
-789,
-'Tevin Mcconnell',
-1
-);
-INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES(
-'F475F943-7067-ED11-A06B-7E5DFA4A16C9',
-741,
-'Ameena Lynn',
-0
-);
-INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES(
-'BCDACA4A-7067-ED11-AF81-825DFA4A16C9',
-852,
-'Jarrad Mckee',
-0
-);
-INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES(
-'D2E02051-7067-ED11-94C0-835DFA4A16C9',
-963,
-'Elisha Simons',
-0
-);
+INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES('B6BAFC09 -6967-ED11-A567-055DFA4A16C9',123,'Katherine Sanchez',1);
+INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES('FA99D033-7067-ED11-96C6-7C5DFA4A16C9',456,'Eva Woodward',1);
+INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES('382D323D-7067-ED11-8866-7D5DFA4A16C9',789,'Tevin Mcconnell',1);
+INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES('F475F943-7067-ED11-A06B-7E5DFA4A16C9',741,'Ameena Lynn',0);
+INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES('BCDACA4A-7067-ED11-AF81-825DFA4A16C9',852,'Jarrad Mckee',0);
+INSERT INTO contacorrente(idcontacorrente, numero, nome, ativo) VALUES('D2E02051-7067-ED11-94C0-835DFA4A16C9',963,'Elisha Simons',0);
 ```
 
 Observação:
@@ -460,5 +338,3 @@ Caso os dados sejam recebidos e estejam válidos, deve retornar HTTP 200 e retor
 - Valor do Saldo atual
 
 Caso os dados estejam inconsistentes, deve retornar falha HTTP 400 (Bad Request) e no body uma mensagem descritiva de qual foi a falha e o tipo de falha.
-
-
