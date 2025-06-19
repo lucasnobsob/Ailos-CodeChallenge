@@ -1,74 +1,59 @@
-﻿using Newtonsoft.Json;
+﻿using Newtonsoft.Json.Linq;
+using System.Net.Http;
 
 public class Program
 {
     public static async Task Main()
     {
-        string teamName = "Paris Saint-Germain";
-        int year = 2013;
-        int totalGoals = await getTotalScoredGoals(teamName, year);
-
-        Console.WriteLine("Team " + teamName + " scored " + totalGoals.ToString() + " goals in " + year);
-
-        teamName = "Chelsea";
-        year = 2014;
-        totalGoals = await getTotalScoredGoals(teamName, year);
-
-        Console.WriteLine("Team " + teamName + " scored " + totalGoals.ToString() + " goals in " + year);
-
-        // Output expected:
-        // Team Paris Saint - Germain scored 109 goals in 2013
-        // Team Chelsea scored 92 goals in 2014
+        await ShowTeamGoalsAsync("Paris Saint-Germain", 2013);
+        await ShowTeamGoalsAsync("Chelsea", 2014);
     }
 
-    public static async Task<int> getTotalScoredGoals(string team, int year)
+    private static async Task ShowTeamGoalsAsync(string teamName, int year)
+    {
+        int totalGoals = await GetTotalScoredGoalsAsync(teamName, year);
+        Console.WriteLine($"Team {teamName} scored {totalGoals} goals in {year}");
+    }
+
+    private static async Task<int> GetTotalScoredGoalsAsync(string team, int year)
     {
         int totalGoals = 0;
-        int page = 1;
-        int totalPages = 1;
+        int currentPage = 1;
+        int totalPages;
 
-        using (HttpClient client = new HttpClient())
+        using var client = new HttpClient();
+
+        do
         {
-            while (page <= totalPages)
-            {
-                string url1 = $"https://jsonmock.hackerrank.com/api/football_matches?year={year}&team1={team}&page={page}";
-                string url2 = $"https://jsonmock.hackerrank.com/api/football_matches?year={year}&team2={team}&page={page}";
+            var team1Result = await GetGoalsForPageAsync(client, team, year, currentPage, isTeam1: true);
+            var team2Result = await GetGoalsForPageAsync(client, team, year, currentPage, isTeam1: false);
 
-                // Get matches where the team is team1
-                HttpResponseMessage response1 = await client.GetAsync(url1);
-                response1.EnsureSuccessStatusCode();
-                string json1 = await response1.Content.ReadAsStringAsync();
-                dynamic data1 = JsonConvert.DeserializeObject(json1);
+            totalGoals += team1Result.Goals + team2Result.Goals;
+            totalPages = Math.Max(team1Result.TotalPages, team2Result.TotalPages);
 
-                if (data1.total_pages != null)
-                {
-                    totalPages = data1.total_pages;
-                }
+            currentPage++;
+        } while (currentPage <= totalPages);
 
-                foreach (var match in data1.data)
-                {
-                    totalGoals += int.Parse(match.team1goals.ToString());
-                }
-
-                // Get matches where the team is team2
-                HttpResponseMessage response2 = await client.GetAsync(url2);
-                response2.EnsureSuccessStatusCode();
-                string json2 = await response2.Content.ReadAsStringAsync();
-                dynamic data2 = JsonConvert.DeserializeObject(json2);
-
-                if (data2.total_pages != null)
-                {
-                    totalPages = data2.total_pages;
-                }
-
-                foreach (var match in data2.data)
-                {
-                    totalGoals += int.Parse(match.team2goals.ToString());
-                }
-
-                page++;
-            }
-        }
         return totalGoals;
     }
+
+    private static async Task<MatchResult> GetGoalsForPageAsync(HttpClient client, string team, int year, int page, bool isTeam1)
+    {
+        string teamParam = isTeam1 ? "team1" : "team2";
+        string goalsKey = isTeam1 ? "team1goals" : "team2goals";
+
+        string url = $"https://jsonmock.hackerrank.com/api/football_matches?year={year}&{teamParam}={team}&page={page}";
+        var response = await client.GetAsync(url);
+        response.EnsureSuccessStatusCode();
+
+        string content = await response.Content.ReadAsStringAsync();
+        JObject json = JObject.Parse(content);
+
+        int totalPages = (int)json["total_pages"];
+        int goals = json["data"].Sum(match => (int)match[goalsKey]);
+
+        return new MatchResult(goals, totalPages);
+    }
+
+    private record MatchResult(int Goals, int TotalPages);
 }
