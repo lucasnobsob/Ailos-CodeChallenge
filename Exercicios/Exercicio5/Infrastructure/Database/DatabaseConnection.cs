@@ -2,7 +2,7 @@
 using Questao5.Domain.Interfaces;
 using System.Data;
 
-namespace Questao5.Infrastructure.Sqlite
+namespace Questao5.Infrastructure.Database
 {
     public class DatabaseConnection : IDatabaseConnection
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 
-namespace Questao5.Infrastructure.Sqlite
+namespace Questao5.Infrastructure.Database
 {
     public static class DatabaseBootstrap
     {

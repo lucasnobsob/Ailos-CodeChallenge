@@ -1,5 +1,6 @@
 using MediatR;
 using Questao5.Domain.Interfaces;
+using Questao5.Infrastructure.Database;
 using Questao5.Infrastructure.Repositories;
 using Questao5.Infrastructure.Sqlite;
 using System.Data;
