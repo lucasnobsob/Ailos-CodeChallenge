@@ -1,3 +1,5 @@
+using Exercicio5.Application.Movimentacao.Services;
+using Exercicio5.Domain.Interfaces;
 using MediatR;
 using Questao5.Domain.Interfaces;
 using Questao5.Infrastructure.Database;
@@ -17,6 +19,7 @@ builder.Services.AddScoped<IDbConnection>(provider => provider.GetService<IDatab
 // Repositories
 builder.Services.AddScoped<IContaCorrenteRepository, ContaCorrenteRepository>();
 builder.Services.AddScoped<IMovimentoRepository, MovimentoRepository>();
+builder.Services.AddScoped<IMovimentacaoQueryService, MovimentacaoQueryService>();
 builder.Services.AddScoped<IIdempotenciaRepository, IdempotenciaRepository>();
 
 // MediatR

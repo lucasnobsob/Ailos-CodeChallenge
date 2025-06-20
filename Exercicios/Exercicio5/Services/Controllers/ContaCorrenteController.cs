@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Exercicio5.Domain.Interfaces;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Questao5.Application.Movimentacao.Commands;
 using Questao5.Application.Movimentacao.Queries;
@@ -13,10 +14,12 @@ namespace Questao5.Services.Controllers
     public class ContaCorrenteController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly IMovimentacaoQueryService _movimentacaoQueryService;
 
-        public ContaCorrenteController(IMediator mediator)
+        public ContaCorrenteController(IMediator mediator, IMovimentacaoQueryService movimentacaoQueryService)
         {
             _mediator = mediator;
+            _movimentacaoQueryService = movimentacaoQueryService;
         }
 
         /// <summary>
@@ -99,8 +102,7 @@ namespace Questao5.Services.Controllers
                     });
                 }
 
-                var query = new GetSaldoByContaCorrenteQuery { IdContaCorrente = idContaCorrente };
-                var result = await _mediator.Send(query);
+                var result = await _movimentacaoQueryService.GetSaldoAsync(idContaCorrente);
                 return Ok(result);
             }
             catch (BusinessException ex)
