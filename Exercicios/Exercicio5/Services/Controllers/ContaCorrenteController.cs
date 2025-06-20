@@ -52,7 +52,6 @@ namespace Questao5.Services.Controllers
 
                 var command = new CreateMovimentacaoCommand
                 {
-                    ChaveIdempotencia = request.ChaveIdempotencia,
                     IdContaCorrente = request.IdContaCorrente,
                     Valor = request.Valor,
                     TipoMovimento = request.TipoMovimento

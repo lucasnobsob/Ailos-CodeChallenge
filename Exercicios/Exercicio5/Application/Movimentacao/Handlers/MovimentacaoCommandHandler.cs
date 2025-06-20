@@ -26,13 +26,6 @@ namespace Questao5.Application.Movimentacao.Handlers
 
         public async Task<GetMovimentacaoByIdQuery> Handle(CreateMovimentacaoCommand request, CancellationToken cancellationToken)
         {
-            // Verificar idempotência
-            var idempotenciaExistente = await _idempotenciaRepository.GetByChaveAsync(request.ChaveIdempotencia);
-            if (idempotenciaExistente != null)
-            {
-                return JsonSerializer.Deserialize<GetMovimentacaoByIdQuery>(idempotenciaExistente.Resultado);
-            }
-
             // Validar conta corrente
             var conta = await _contaCorrenteRepository.GetByIdAsync(request.IdContaCorrente);
             if (conta == null)
@@ -74,7 +67,7 @@ namespace Questao5.Application.Movimentacao.Handlers
             // Salvar idempotência
             var idempotencia = new Idempotencia
             {
-                ChaveIdempotencia = request.ChaveIdempotencia,
+                ChaveIdempotencia = Guid.NewGuid().ToString(),
                 Requisicao = JsonSerializer.Serialize(request),
                 Resultado = JsonSerializer.Serialize(response)
             };

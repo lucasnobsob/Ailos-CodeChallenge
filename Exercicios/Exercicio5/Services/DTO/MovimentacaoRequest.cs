@@ -5,9 +5,6 @@ namespace Questao5.Services.DTO
 {
     public class MovimentacaoRequest
     {
-        [Required(ErrorMessage = "A chave de idempotência é obrigatória")]
-        public string ChaveIdempotencia { get; set; }
-
         [Required(ErrorMessage = "O ID da conta corrente é obrigatório")]
         public string IdContaCorrente { get; set; }
 
