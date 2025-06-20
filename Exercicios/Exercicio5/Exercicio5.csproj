@@ -31,8 +31,4 @@
 	</PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Application\Saldo\Services\" />
-  </ItemGroup>
-
 </Project>

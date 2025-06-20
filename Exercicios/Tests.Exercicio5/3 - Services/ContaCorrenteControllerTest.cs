@@ -1,6 +1,8 @@
-﻿using MediatR;
+﻿using Exercicio5.Domain.Interfaces;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 using Questao5.Application.Movimentacao.Commands;
 using Questao5.Application.Movimentacao.Queries;
 using Questao5.Application.Saldo.Queries;
@@ -13,12 +15,14 @@ namespace Tests.Exercicio5.Services
     public class ContaCorrenteControllerTests
     {
         private readonly IMediator _mediator;
+        private readonly IMovimentacaoQueryService _movimentacaoQueryService;
         private readonly ContaCorrenteController _controller;
 
         public ContaCorrenteControllerTests()
         {
             _mediator = Substitute.For<IMediator>();
-            _controller = new ContaCorrenteController(_mediator);
+            _movimentacaoQueryService = Substitute.For<IMovimentacaoQueryService>();
+            _controller = new ContaCorrenteController(_mediator, _movimentacaoQueryService);
         }
 
         [Fact]
@@ -73,8 +77,7 @@ namespace Tests.Exercicio5.Services
                 Saldo = 1500.75m
             };
 
-            _mediator.Send(Arg.Any<GetSaldoByContaCorrenteQuery>())
-                .Returns(expectedResponse);
+            _movimentacaoQueryService.GetSaldoAsync(Arg.Any<string>()).Returns(expectedResponse);
 
             // Act
             var result = await _controller.Saldo(idContaCorrente);
@@ -126,8 +129,7 @@ namespace Tests.Exercicio5.Services
             var idContaCorrente = Guid.NewGuid().ToString();
             var businessException = new BusinessException("INACTIVE_ACCOUNT", "Conta inativa");
 
-            _mediator.Send(Arg.Any<GetSaldoByContaCorrenteQuery>())
-                .Returns(Task.FromException<SaldoResponse>(businessException));
+            _movimentacaoQueryService.GetSaldoAsync(Arg.Any<string>()).ThrowsAsync(businessException);
 
             // Act
             var result = await _controller.Saldo(idContaCorrente);
@@ -158,30 +160,6 @@ namespace Tests.Exercicio5.Services
                 cmd.IdContaCorrente == request.IdContaCorrente &&
                 cmd.Valor == request.Valor &&
                 cmd.TipoMovimento == request.TipoMovimento));
-        }
-
-        [Fact]
-        public async Task Saldo_DeveEnviarQueryCorretaParaMediator()
-        {
-            // Arrange
-            var idContaCorrente = Guid.NewGuid().ToString();
-            var expectedResponse = new SaldoResponse
-            {
-                NumeroContaCorrente = 123,
-                NomeTitular = "João Silva",
-                DataHoraResposta = DateTime.Now,
-                Saldo = 1500.75m
-            };
-
-            _mediator.Send(Arg.Any<GetSaldoByContaCorrenteQuery>())
-                .Returns(expectedResponse);
-
-            // Act
-            await _controller.Saldo(idContaCorrente);
-
-            // Assert
-            await _mediator.Received(1).Send(Arg.Is<GetSaldoByContaCorrenteQuery>(query =>
-                query.IdContaCorrente == idContaCorrente));
         }
     }
 }
