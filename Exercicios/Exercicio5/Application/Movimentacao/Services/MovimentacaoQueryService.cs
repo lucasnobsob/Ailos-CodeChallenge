@@ -2,7 +2,6 @@
 using Questao5.Application.Saldo.Queries;
 using Questao5.Domain.Exceptions;
 using Questao5.Domain.Interfaces;
-using Questao5.Infrastructure.Repositories;
 
 namespace Exercicio5.Application.Movimentacao.Services
 {
@@ -32,7 +31,13 @@ namespace Exercicio5.Application.Movimentacao.Services
             }
 
             var result = await _movimentoRepository.GetSaldoAsync(idContaCorrente);
-            var response = new SaldoResponse { Saldo = result };
+            var response = new SaldoResponse 
+            { 
+                NumeroContaCorrente = conta.Numero,
+                NomeTitular = conta.Nome,
+                DataHoraResposta = DateTime.Now,
+                Saldo = result
+            };
 
             return response;
         }
