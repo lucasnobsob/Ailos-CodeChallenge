@@ -118,7 +118,7 @@ Resultado esperado:
 
 **Team Chelsea scored 92 goals in 2014**
 
-# Questões 3
+# Questão 3
 
 Nesta questão vamos usar o Git e um editor de texto (nano), você pode realizar uma sequência de comandos em um diretório da sua máquina local, seguindo a sequência definida no exercício.
 
